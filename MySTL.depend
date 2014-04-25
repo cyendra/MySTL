@@ -25,29 +25,37 @@
 1397984966 g:\acm\mystl\stl_algobase.h
 	"stl_iterator.h"
 
-1397985748 source:g:\documents\github\mystl\main.cpp
+1398429102 source:g:\documents\github\mystl\main.cpp
 	"stl_vector.h"
+	"stl_algo.h"
 	<iostream>
 
-1397986548 g:\documents\github\mystl\stl_vector.h
+1398432458 g:\documents\github\mystl\stl_vector.h
 	"stl_alloc.h"
 	"stl_construct.h"
 	"stl_iterator.h"
 	"stl_uninitialized.h"
 	"stl_algobase.h"
+	"stl_algo.h"
 
-1397906343 g:\documents\github\mystl\stl_alloc.h
+1398423105 g:\documents\github\mystl\stl_alloc.h
 	<iostream>
 	<cstdlib>
 
-1397907780 g:\documents\github\mystl\stl_construct.h
+1398423105 g:\documents\github\mystl\stl_construct.h
 	<new>
 
-1397906102 g:\documents\github\mystl\stl_iterator.h
+1398423105 g:\documents\github\mystl\stl_iterator.h
 
-1397909008 g:\documents\github\mystl\stl_uninitialized.h
+1398423105 g:\documents\github\mystl\stl_uninitialized.h
 	"stl_construct.h"
 
-1397984966 g:\documents\github\mystl\stl_algobase.h
+1398432311 g:\documents\github\mystl\stl_algobase.h
+	"stl_iterator.h"
+
+1398428907 g:\documents\github\mystl\stl_algo.h
+	"stl_algobase.h"
+	"stl_alloc.h"
+	"stl_construct.h"
 	"stl_iterator.h"
 

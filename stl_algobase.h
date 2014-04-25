@@ -63,7 +63,8 @@ inline BidirectionalIterator2 __copy_backward(BidirectionalIterator1 first,
                                      bidirectional_iterator_tag) {
     --first;
     --last;
-    for ( ; first != last; ++res, --last) { *res = *last; }
+    --res;
+    for ( ; first != last; --res, --last) { *res = *last; }
     return res;
 }
 
@@ -81,7 +82,8 @@ inline OutputIterator __copy_backward_d(RandomAccessIterator first, RandomAccess
     Distance n = last - first;
     --first;
     --last;
-    for ( ; n > 0; --n, ++res, --last) { *res = *last; }
+    --res;
+    for ( ; n > 0; --n, --res, --last) { *res = *last; }
     return res;
 }
 
