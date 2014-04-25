@@ -2,7 +2,7 @@
 #define STL_ALGOBASE_H_INCLUDED
 #include "stl_iterator.h"
 
-
+/**** copy ****/
 
 template <class InputIterator, class OutputIterator>
 inline OutputIterator __copy(InputIterator first, InputIterator last, OutputIterator res, input_iterator_tag) {
@@ -53,5 +53,21 @@ inline OutputIterator copy(InputIterator first, InputIterator last, OutputIterat
     return __copy_dispatch<InputIterator,OutputIterator>()(first,last,res);
 }
 
+/**** copy_backward ****/
+
+
+
+/**** Çó×îÖµ max/min ****/
+template <class T>
+inline const T& max(const T& a, const T& b) { return a < b? b : a; }
+
+template <class T, class Compare>
+inline const T& max(const T& a, const T& b, Compare comp) { return comp(a, b) ? b : a; }
+
+template <class T>
+inline const T& min(const T& a, const T& b) { return a < b? a : b; }
+
+template <class T, class Compare>
+inline const T& min(const T& a, const T& b, Compare comp) { return comp(b, a) ? b : a; }
 
 #endif // STL_ALGOBASE_H_INCLUDED
