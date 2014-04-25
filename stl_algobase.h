@@ -55,6 +55,77 @@ inline OutputIterator copy(InputIterator first, InputIterator last, OutputIterat
 
 /**** copy_backward ****/
 
+template <class BidirectionalIterator1,
+          class BidirectionalIterator2>
+inline BidirectionalIterator2 __copy_backward(BidirectionalIterator1 first,
+                                     BidirectionalIterator1 last,
+                                     BidirectionalIterator2 res,
+                                     bidirectional_iterator_tag) {
+    --first;
+    --last;
+    for ( ; first != last; ++res, --last) { *res = *last; }
+    return res;
+}
+
+template <class RandomAccessIterator,
+          class BidirectionalIterator>
+inline BidirectionalIterator __copy_backward(RandomAccessIterator first,
+                                    RandomAccessIterator last,
+                                    BidirectionalIterator res,
+                                    random_access_iterator_tag) {
+    return __copy_backward_d(first, last, res, distance_type(first));
+}
+
+template <class RandomAccessIterator, class OutputIterator, class Distance>
+inline OutputIterator __copy_backward_d(RandomAccessIterator first, RandomAccessIterator last, OutputIterator res, Distance*) {
+    Distance n = last - first;
+    --first;
+    --last;
+    for ( ; n > 0; --n, ++res, --last) { *res = *last; }
+    return res;
+}
+
+template <class T>
+inline T* __copy_backward_t(const T* first, const T* last, T* res) {
+    return __copy_backward_d(first,last,res,(ptrdiff_t*)0);
+}
+
+
+template <class BidirectionalIterator1,
+          class BidirectionalIterator2>
+struct __copy_backward_dispatch {
+    BidirectionalIterator2 operator()(BidirectionalIterator1 first,
+                                      BidirectionalIterator1 last,
+                                      BidirectionalIterator2 res) {
+        return __copy_backward(first, last, res, iterator_category(first));
+    }
+};
+
+template <class T>
+struct __copy_backward_dispatch<const T*, T*> {
+    T* operator()(const T* first, const T* last, T* res) {
+        return __copy_backward_t(first, last, res);
+    }
+};
+
+template <class T>
+struct __copy_backward_dispatch<T*, T*> {
+    T* operator()(T* first, T* last, T* res) {
+        return __copy_backward_t(first, last, res);
+    }
+};
+
+
+template <class BidirectionalIterator1,
+          class BidirectionalIterator2>
+inline BidirectionalIterator2 copy_backward(BidirectionalIterator1 first,
+                                            BidirectionalIterator1 last,
+                                            BidirectionalIterator2 res) {
+    return __copy_backward_dispatch<BidirectionalIterator1,BidirectionalIterator2>()(first,last,res);
+}
+
+
+
 
 
 /**** Çó×îÖµ max/min ****/
