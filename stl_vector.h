@@ -6,6 +6,7 @@
 #include "stl_iterator.h"
 #include "stl_uninitialized.h"
 #include "stl_algobase.h"
+#include "stl_algo.h"
 
 template <class T, class Alloc = myAlloc>
 class vector {
@@ -23,7 +24,6 @@ protected:
     iterator end_of_storage;
 
     void insert_aux(iterator position, const T& x);
-    void insert(iterator pos, size_type n, const T& x);
     void deallocate() {
         if (start) {
             data_allocator::deallocate(start, end_of_storage - start);
@@ -85,6 +85,7 @@ public:
     }
     void resize(size_type new_size) { resize(new_size, T()); }
     void clear() { erase(start, finish); }
+    void insert(iterator pos, size_type n, const T& x);
 protected:
     iterator allocate_and_fill(size_type n, const T& x) {
         iterator res = data_allocator::allocate(n);

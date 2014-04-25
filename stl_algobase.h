@@ -141,4 +141,16 @@ inline const T& min(const T& a, const T& b) { return a < b? a : b; }
 template <class T, class Compare>
 inline const T& min(const T& a, const T& b, Compare comp) { return comp(b, a) ? b : a; }
 
+/**** fill ****/
+template <class ForwardIterator, class T>
+void fill(ForwardIterator first, ForwardIterator last, const T& value) {
+    for ( ; first != last; ++first ) { *first = value; }
+}
+
+template <class OutputIterator, class Size, class T>
+OutputIterator fill_n(OutputIterator first, Size n, const T& value) {
+    for ( ; n > 0; --n, ++first ) { *first = value; }
+    return first;
+}
+
 #endif // STL_ALGOBASE_H_INCLUDED

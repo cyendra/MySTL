@@ -1,14 +1,66 @@
 #include "stl_vector.h"
+#include "stl_algo.h"
 #include <iostream>
-//#include <vector>
+
 using namespace std;
 int main()
 {
-    vector<int> v1(111);
-    vector<double> v2;
-    v1[0] = 111;
-    v1[1] = 222;
-    for (int i=11;i<=123;i++) v2.push_back(0.123*i);
-    for (int i=0;i<(int)v2.size();i++) cout<<v2[i]<<endl;
+    int i;
+
+    vector<int> iv(2,9);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+
+    iv.push_back(1);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+
+    iv.push_back(2);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+
+    iv.push_back(3);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+
+    iv.push_back(4);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+    for (i=0;i<iv.size();++i) cout<<iv[i]<<" ";
+    cout<<endl;
+
+    iv.push_back(5);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+    for (i=0;i<iv.size();++i) cout<<iv[i]<<" ";
+    cout<<endl;
+
+    iv.pop_back();
+    iv.pop_back();
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+
+    iv.pop_back();
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+
+    vector<int>::iterator ivite = find(iv.begin(),iv.end(),1);
+    if (ivite != iv.end()) iv.erase(ivite);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+    for (i=0;i<iv.size();++i) cout<<iv[i]<<" ";
+    cout<<endl;
+
+    ivite = find(iv.begin(),iv.end(),2);
+    if (ivite != iv.end()) iv.insert(ivite,3,7);
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+    for (i=0;i<iv.size();++i) cout<<iv[i]<<" ";
+    cout<<endl;
+
+    iv.clear();
+    cout<<"size="<<iv.size()<<endl;
+    cout<<"capacity="<<iv.capacity()<<endl;
+
     return 0;
 }
