@@ -118,4 +118,21 @@ inline void advance(InputIterator& i, Distance n) {
 }
 
 
+// distance
+
+template <class InputIterator, class Distance>
+inline void __distance(InputIterator first, InputIterator last, Distance& n, input_iterator_tag) {
+    while (first != last) { ++first; ++n; }
+}
+
+template <class RandomAccessIterator, class Distance>
+inline void __distance(RandomAccessIterator first, RandomAccessIterator last, Distance& n, random_access_iterator_tag) {
+  n += last - first;
+}
+
+template <class InputIterator, class Distance>
+inline void distance(InputIterator first, InputIterator last, Distance& n) {
+  __distance(first, last, n, iterator_category(first));
+}
+
 #endif // STL_ITERATOR_H_INCLUDED

@@ -154,4 +154,12 @@ OutputIterator fill_n(OutputIterator first, Size n, const T& value) {
     return first;
 }
 
+/**** swap ****/
+template <class T>
+inline void swap(T& a, T& b) {
+    T tmp = a;
+    a = b;
+    b = tmp;
+}
+
 #endif // STL_ALGOBASE_H_INCLUDED
