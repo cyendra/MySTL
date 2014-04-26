@@ -1,10 +1,13 @@
-#include "stl_vector.h"
+
 #include "stl_algo.h"
 #include <iostream>
 
 using namespace std;
-int main()
-{
+
+/*****
+The function to test vector
+#include "stl_vector.h"
+void test_vector() {
     int i;
 
     vector<int> iv(2,9);
@@ -61,6 +64,13 @@ int main()
     iv.clear();
     cout<<"size="<<iv.size()<<endl;
     cout<<"capacity="<<iv.capacity()<<endl;
+}
+*****/
+
+
+int main()
+{
+
 
     return 0;
 }
