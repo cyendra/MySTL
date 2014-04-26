@@ -102,7 +102,7 @@ void vector<T, Alloc>::insert_aux(iterator position, const T& x) {
         construct(finish, *(finish - 1));
         ++finish;
         T x_copy = x;
-        copy_backward(position, finish - 1, finish);
+        copy_backward(position, finish - 2, finish - 1);
         *position = x_copy;
     }
     else {

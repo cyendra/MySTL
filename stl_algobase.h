@@ -61,10 +61,10 @@ inline BidirectionalIterator2 __copy_backward(BidirectionalIterator1 first,
                                      BidirectionalIterator1 last,
                                      BidirectionalIterator2 res,
                                      bidirectional_iterator_tag) {
-    --first;
     --last;
     --res;
     for ( ; first != last; --res, --last) { *res = *last; }
+    *res = *first;
     return res;
 }
 
@@ -80,7 +80,6 @@ inline BidirectionalIterator __copy_backward(RandomAccessIterator first,
 template <class RandomAccessIterator, class OutputIterator, class Distance>
 inline OutputIterator __copy_backward_d(RandomAccessIterator first, RandomAccessIterator last, OutputIterator res, Distance*) {
     Distance n = last - first;
-    --first;
     --last;
     --res;
     for ( ; n > 0; --n, --res, --last) { *res = *last; }
