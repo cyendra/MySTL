@@ -46,6 +46,7 @@ public:
     vector(size_type n, const T& value) { fill_initialize(n, value); }
     vector(int n, const T& value) { fill_initialize(n, value); }
     vector(long n, const T& value) { fill_initialize(n, value); }
+    //vector(iterator l, iterator r) { for ( ; l != r; ++l) { push_back(*l); } }// new constructor, is it right??
     explicit vector(size_type n) { fill_initialize(n, T()); }
 
     ~vector() {

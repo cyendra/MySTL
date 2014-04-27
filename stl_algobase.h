@@ -162,4 +162,16 @@ inline void swap(T& a, T& b) {
     b = tmp;
 }
 
+template <class ForwardIterator1, class ForwardIterator2, class T>
+inline void __iter_swap(ForwardIterator1 a, ForwardIterator2 b, T*) {
+    T tmp = *a;
+    *a = *b;
+    *b = tmp;
+}
+
+template <class ForwardIterator1, class ForwardIterator2>
+inline void iter_swap(ForwardIterator1 a, ForwardIterator2 b) {
+    __iter_swap(a, b, value_type(a));
+}
+
 #endif // STL_ALGOBASE_H_INCLUDED

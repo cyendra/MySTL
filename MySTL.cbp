@@ -48,6 +48,9 @@
 		<Unit filename="stl_iterator.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="stl_list.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="stl_uninitialized.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>

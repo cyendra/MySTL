@@ -66,7 +66,7 @@ void test_vector() {
     cout<<"capacity="<<iv.capacity()<<endl;
 }
 *****/
-
+/**
 #include "stl_list.h"
 void test_list() {
     list<int> ilist;
@@ -94,11 +94,27 @@ void test_list() {
 
     for (ite = ilist.begin(); ite != ilist.end(); ++ite) { std::cout<< *ite << " "; } std::cout<<std::endl;
 }
+**/
+
+#include "stl_vector.h"
+#include "stl_algo.h"
+void test_algo() {
+    int ia[5] = {1,2,3,4,5};
+    //vector<int> iv(ia, ia+5);
+    vector<int> iv;
+    for (int i=0;i<5;i++) iv.push_back(ia[i]);
+    for (int i=0;i<5;i++) std::cout<<iv[i]<<std::endl;
+    std::cout<<accumulate(iv.begin(),iv.end(), 0)<<std::endl;
+    do {
+        for (int i=0;i<5;i++) std::cout<<ia[i]<<" ";std::cout<<std::endl;
+    }
+    while (next_permutation(ia,ia+5));
+}
 
 int main()
 {
 
-    test_list();
+    test_algo();
 
     return 0;
 }
