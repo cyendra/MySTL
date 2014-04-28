@@ -100,7 +100,11 @@ void test_list() {
 #include "stl_algo.h"
 void test_algo() {
     int ia[5] = {1,2,3,4,5};
+    int ib[5] = {1,2,3,3,5};
+    if (equal(ia,ia+5,ib)) std::cout<<"equal"<<std::endl;
+    else std::cout<<"not equal"<<std::endl;
     //vector<int> iv(ia, ia+5);
+    /*
     vector<int> iv;
     for (int i=0;i<5;i++) iv.push_back(ia[i]);
     for (int i=0;i<5;i++) std::cout<<iv[i]<<std::endl;
@@ -109,6 +113,7 @@ void test_algo() {
         for (int i=0;i<5;i++) std::cout<<ia[i]<<" ";std::cout<<std::endl;
     }
     while (next_permutation(ia,ia+5));
+    */
 }
 
 int main()
