@@ -191,4 +191,7 @@ inline bool equal(InputIterator1 first1, InputIterator1 last1, InputIterator2 fi
     return true;
 }
 
+/**  **/
+
+
 #endif // STL_ALGOBASE_H_INCLUDED

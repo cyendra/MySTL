@@ -57,7 +57,6 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last) {
     if (i == last) return false;
     i = last;
     --i;
-
     for (;;) {
         BidirectionalIterator ii = i;
         --i;
@@ -75,5 +74,29 @@ bool next_permutation(BidirectionalIterator first, BidirectionalIterator last) {
     }
 }
 
+template <class BidirectionalIterator>
+bool prev_permutation(BidirectionalIterator first, BidirectionalIterator last) {
+    if (first == last) return false;
+    BidirectionalIterator i = first;
+    ++i;
+    if (i == last) return false;
+    i = last;
+    --i;
+    for (;;) {
+        BidirectionalIterator ii = i;
+        --i;
+        if (*ii < *i) {
+            BidirectionalIterator j = last;
+            while (!(*--j < *i));
+            iter_swap(i,j);
+            reverse(ii,last);
+            return true;
+        }
+        if (i == last) {
+            reverse(first, last);
+            return false;
+        }
+    }
+}
 
 #endif // STL_ALGO_H_INCLUDED

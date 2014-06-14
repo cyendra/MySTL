@@ -101,8 +101,10 @@ void test_list() {
 void test_algo() {
     int ia[5] = {1,2,3,4,5};
     int ib[5] = {1,2,3,3,5};
-    if (equal(ia,ia+5,ib)) std::cout<<"equal"<<std::endl;
-    else std::cout<<"not equal"<<std::endl;
+    std::cout<<max(1,2)<<std::endl;
+    std::cout<<min(1,2)<<std::endl;
+    //if (equal(ia,ia+5,ib)) std::cout<<"equal"<<std::endl;
+    //else std::cout<<"not equal"<<std::endl;
     //vector<int> iv(ia, ia+5);
     /*
     vector<int> iv;
